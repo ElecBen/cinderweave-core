@@ -1,4 +1,6 @@
 def levenshtein(a, b):
+    if a is None or b is None:
+        raise TypeError("a y b deben ser str")
     filas, cols = len(a) + 1, len(b) + 1
     d = [[0] * cols for _ in range(filas)]
     for i in range(filas):
