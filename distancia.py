@@ -13,3 +13,7 @@ def levenshtein(a, b):
             d[i][j] = min(d[i - 1][j] + 1, d[i][j - 1] + 1,
                           d[i - 1][j - 1] + coste)
     return d[-1][-1]
+
+
+def parecidos(palabra, candidatos, maximo=2):
+    return [c for c in candidatos if levenshtein(palabra, c) <= maximo]
