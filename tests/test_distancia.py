@@ -1,6 +1,6 @@
 import pytest
 
-from distancia import levenshtein
+from distancia import levenshtein, parecidos
 
 
 def test_iguales():
@@ -14,3 +14,7 @@ def test_una_edicion():
 def test_tipo_invalido():
     with pytest.raises(TypeError):
         levenshtein(None, "casa")
+
+
+def test_parecidos():
+    assert parecidos("casa", ["caso", "cosa", "perro"]) == ["caso", "cosa"]
