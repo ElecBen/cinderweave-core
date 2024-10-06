@@ -13,5 +13,10 @@ def levenshtein(a, b):
     return previa[-1]
 
 
+def ratio(a, b):
+    largo = max(len(a), len(b))
+    return 1.0 - levenshtein(a, b) / largo
+
+
 def parecidos(palabra, candidatos, maximo=2):
     return [c for c in candidatos if levenshtein(palabra, c) <= maximo]
