@@ -15,6 +15,8 @@ def levenshtein(a, b):
 
 def ratio(a, b):
     largo = max(len(a), len(b))
+    if largo == 0:
+        return 1.0
     return 1.0 - levenshtein(a, b) / largo
 
 

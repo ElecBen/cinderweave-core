@@ -23,3 +23,7 @@ def test_parecidos():
 def test_ratio():
     assert ratio("casa", "casa") == 1.0
     assert ratio("casa", "caso") == 0.75
+
+
+def test_ratio_cadenas_vacias():
+    assert ratio("", "") == 1.0
