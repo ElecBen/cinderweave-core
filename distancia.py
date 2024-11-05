@@ -20,5 +20,9 @@ def ratio(a, b):
     return 1.0 - levenshtein(a, b) / largo
 
 
+def hamming(a, b):
+    return sum(1 for ca, cb in zip(a, b) if ca != cb)
+
+
 def parecidos(palabra, candidatos, maximo=2):
     return [c for c in candidatos if levenshtein(palabra, c) <= maximo]
