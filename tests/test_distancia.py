@@ -1,6 +1,6 @@
 import pytest
 
-from distancia import levenshtein, parecidos
+from distancia import levenshtein, parecidos, ratio
 
 
 def test_iguales():
@@ -18,3 +18,8 @@ def test_tipo_invalido():
 
 def test_parecidos():
     assert parecidos("casa", ["caso", "cosa", "perro"]) == ["caso", "cosa"]
+
+
+def test_ratio():
+    assert ratio("casa", "casa") == 1.0
+    assert ratio("casa", "caso") == 0.75
