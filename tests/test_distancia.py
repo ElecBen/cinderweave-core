@@ -1,6 +1,6 @@
 import pytest
 
-from distancia import levenshtein, parecidos, ratio
+from distancia import hamming, levenshtein, parecidos, ratio
 
 
 def test_iguales():
@@ -27,3 +27,12 @@ def test_ratio():
 
 def test_ratio_cadenas_vacias():
     assert ratio("", "") == 1.0
+
+
+def test_hamming():
+    assert hamming("casa", "caso") == 1
+
+
+def test_hamming_longitudes_distintas():
+    with pytest.raises(ValueError):
+        hamming("ab", "abc")
