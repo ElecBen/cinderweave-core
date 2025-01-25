@@ -21,6 +21,8 @@ def ratio(a, b):
 
 
 def hamming(a, b):
+    if len(a) != len(b):
+        raise ValueError("hamming exige cadenas de la misma longitud")
     return sum(1 for ca, cb in zip(a, b) if ca != cb)
 
 
