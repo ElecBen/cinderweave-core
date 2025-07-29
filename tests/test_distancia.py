@@ -40,3 +40,7 @@ def test_hamming_longitudes_distintas():
 
 def test_closest():
     assert closest("caso", ["perro", "casa", "cosa"]) == "casa"
+
+
+def test_closest_sin_candidatos():
+    assert closest("casa", []) is None

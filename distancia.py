@@ -29,6 +29,9 @@ def hamming(a, b):
 
 
 def closest(palabra, candidatos):
+    candidatos = list(candidatos)
+    if not candidatos:
+        return None
     return min(candidatos, key=lambda c: levenshtein(palabra, c))
 
 
