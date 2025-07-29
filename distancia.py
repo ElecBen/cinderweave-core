@@ -1,6 +1,8 @@
 def levenshtein(a, b):
     if a is None or b is None:
         raise TypeError("a y b deben ser str")
+    if a == b:
+        return 0
     if len(a) < len(b):
         a, b = b, a
     previa = list(range(len(b) + 1))
