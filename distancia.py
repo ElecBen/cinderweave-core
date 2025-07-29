@@ -36,4 +36,5 @@ def closest(palabra, candidatos):
 
 
 def parecidos(palabra, candidatos, maximo=2):
-    return [c for c in candidatos if levenshtein(palabra, c) <= maximo]
+    cercanos = [(levenshtein(palabra, c), c) for c in candidatos]
+    return [c for d, c in sorted(cercanos) if d <= maximo]
