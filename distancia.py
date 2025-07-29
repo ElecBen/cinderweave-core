@@ -28,5 +28,9 @@ def hamming(a, b):
     return sum(1 for ca, cb in zip(a, b) if ca != cb)
 
 
+def closest(palabra, candidatos):
+    return min(candidatos, key=lambda c: levenshtein(palabra, c))
+
+
 def parecidos(palabra, candidatos, maximo=2):
     return [c for c in candidatos if levenshtein(palabra, c) <= maximo]
