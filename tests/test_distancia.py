@@ -1,6 +1,6 @@
 import pytest
 
-from distancia import hamming, levenshtein, parecidos, ratio
+from distancia import closest, hamming, levenshtein, parecidos, ratio
 
 
 def test_iguales():
@@ -36,3 +36,7 @@ def test_hamming():
 def test_hamming_longitudes_distintas():
     with pytest.raises(ValueError):
         hamming("ab", "abc")
+
+
+def test_closest():
+    assert closest("caso", ["perro", "casa", "cosa"]) == "casa"
