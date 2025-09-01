@@ -20,6 +20,10 @@ def test_parecidos():
     assert parecidos("casa", ["caso", "cosa", "perro"]) == ["caso", "cosa"]
 
 
+def test_parecidos_por_distancia():
+    assert parecidos("casa", ["cosas", "caso"]) == ["caso", "cosas"]
+
+
 def test_ratio():
     assert ratio("casa", "casa") == 1.0
     assert ratio("casa", "caso") == 0.75
