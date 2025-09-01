@@ -1,3 +1,6 @@
+"""Distancia de edicion entre cadenas, sin dependencias externas."""
+
+
 def levenshtein(a, b):
     if a is None or b is None:
         raise TypeError("a y b deben ser str")
