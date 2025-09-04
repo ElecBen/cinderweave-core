@@ -1,5 +1,8 @@
 """Distancia de edicion entre cadenas, sin dependencias externas."""
 
+__all__ = ["closest", "hamming", "levenshtein", "parecidos",
+           "ratio"]
+
 
 def levenshtein(a, b):
     if a is None or b is None:
