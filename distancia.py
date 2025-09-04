@@ -1,10 +1,13 @@
 """Distancia de edicion entre cadenas, sin dependencias externas."""
 
+from __future__ import annotations
+
 __all__ = ["closest", "hamming", "levenshtein", "parecidos",
            "ratio"]
 
 
-def levenshtein(a, b):
+def levenshtein(a: str, b: str) -> int:
+    """Ediciones de un caracter para convertir a en b."""
     if a is None or b is None:
         raise TypeError("a y b deben ser str")
     if a == b:
@@ -21,26 +24,30 @@ def levenshtein(a, b):
     return previa[-1]
 
 
-def ratio(a, b):
+def ratio(a: str, b: str) -> float:
+    """Parecido entre 0.0 y 1.0, normalizado por la cadena larga."""
     largo = max(len(a), len(b))
     if largo == 0:
         return 1.0
     return 1.0 - levenshtein(a, b) / largo
 
 
-def hamming(a, b):
+def hamming(a: str, b: str) -> int:
+    """Posiciones en las que a y b difieren."""
     if len(a) != len(b):
         raise ValueError("hamming exige cadenas de la misma longitud")
     return sum(1 for ca, cb in zip(a, b) if ca != cb)
 
 
-def closest(palabra, candidatos):
+def closest(palabra: str, candidatos) -> str | None:
+    """El candidato mas cercano, o None si no hay ninguno."""
     candidatos = list(candidatos)
     if not candidatos:
         return None
     return min(candidatos, key=lambda c: levenshtein(palabra, c))
 
 
-def parecidos(palabra, candidatos, maximo=2):
+def parecidos(palabra: str, candidatos, maximo: int = 2) -> list[str]:
+    """Candidatos a distancia <= maximo, del mas cercano al menos."""
     cercanos = [(levenshtein(palabra, c), c) for c in candidatos]
     return [c for d, c in sorted(cercanos) if d <= maximo]
