@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-__all__ = ["closest", "hamming", "levenshtein", "parecidos",
-           "ratio"]
+__all__ = ["closest", "damerau", "hamming", "levenshtein",
+           "parecidos", "ratio"]
 
 
 def levenshtein(a: str, b: str) -> int:
@@ -37,6 +37,26 @@ def hamming(a: str, b: str) -> int:
     if len(a) != len(b):
         raise ValueError("hamming exige cadenas de la misma longitud")
     return sum(1 for ca, cb in zip(a, b) if ca != cb)
+
+
+def damerau(a, b):
+    if a is None or b is None:
+        raise TypeError("a y b deben ser str")
+    filas, cols = len(a) + 1, len(b) + 1
+    d = [[0] * cols for _ in range(filas)]
+    for i in range(filas):
+        d[i][0] = i
+    for j in range(cols):
+        d[0][j] = j
+    for i in range(1, filas):
+        for j in range(1, cols):
+            coste = 0 if a[i - 1] == b[j - 1] else 1
+            d[i][j] = min(d[i - 1][j] + 1, d[i][j - 1] + 1,
+                          d[i - 1][j - 1] + coste)
+            if (i > 1 and j > 1 and a[i - 1] == b[j - 2]
+                    and a[i - 2] == b[j - 1]):
+                d[i][j] = min(d[i][j], d[i - 2][j - 2] + 1)
+    return d[-1][-1]
 
 
 def closest(palabra: str, candidatos) -> str | None:
