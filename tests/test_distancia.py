@@ -1,6 +1,7 @@
 import pytest
 
-from distancia import closest, hamming, levenshtein, parecidos, ratio
+from distancia import (closest, damerau, hamming,
+                       levenshtein, parecidos, ratio)
 
 
 def test_iguales():
@@ -48,3 +49,8 @@ def test_closest():
 
 def test_closest_sin_candidatos():
     assert closest("casa", []) is None
+
+
+def test_damerau_cuenta_la_transposicion():
+    assert damerau("ab", "ba") == 1
+    assert levenshtein("ab", "ba") == 2
