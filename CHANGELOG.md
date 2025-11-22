@@ -1,5 +1,9 @@
 # Changelog
 
+## No publicado
+
+- damerau() cuenta la transposicion de dos caracteres como una edicion
+
 ## 0.2.0
 
 - ratio() con el parecido normalizado
