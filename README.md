@@ -17,3 +17,14 @@ from distancia import ratio
 
 ratio("casa", "caso")  # 0.75
 ```
+
+## API
+
+| funcion | que devuelve |
+| --- | --- |
+| `levenshtein(a, b)` | ediciones de un caracter para pasar de `a` a `b` |
+| `damerau(a, b)` | igual, contando la transposicion como una sola |
+| `hamming(a, b)` | posiciones distintas, exige la misma longitud |
+| `ratio(a, b)` | parecido entre 0.0 y 1.0 |
+| `closest(p, cands)` | el candidato mas cercano, o `None` |
+| `parecidos(p, cands, maximo)` | candidatos ordenados por distancia |
