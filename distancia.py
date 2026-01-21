@@ -39,7 +39,8 @@ def hamming(a: str, b: str) -> int:
     return sum(1 for ca, cb in zip(a, b) if ca != cb)
 
 
-def damerau(a, b):
+def damerau(a: str, b: str) -> int:
+    """Como levenshtein(), pero cuenta la transposicion como 1."""
     if a is None or b is None:
         raise TypeError("a y b deben ser str")
     filas, cols = len(a) + 1, len(b) + 1
