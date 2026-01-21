@@ -51,6 +51,14 @@ def test_closest_sin_candidatos():
     assert closest("casa", []) is None
 
 
+def test_closest_empate_mantiene_el_orden():
+    assert closest("casa", ["caso", "cosa"]) == "caso"
+
+
 def test_damerau_cuenta_la_transposicion():
     assert damerau("ab", "ba") == 1
     assert levenshtein("ab", "ba") == 2
+
+
+def test_caracteres_no_ascii():
+    assert levenshtein("nino", "niño") == 1
