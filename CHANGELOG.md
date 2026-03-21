@@ -1,6 +1,6 @@
 # Changelog
 
-## No publicado
+## 0.3.0
 
 - damerau() cuenta la transposicion de dos caracteres como una edicion
 
