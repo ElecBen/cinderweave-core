@@ -1,5 +1,7 @@
 # cinderweave-core
 
+![tests](https://github.com/ElecBen/cinderweave-core/actions/workflows/tests.yml/badge.svg)
+
 Distancia de edicion entre dos cadenas.
 
 ## Uso
