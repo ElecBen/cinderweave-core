@@ -30,3 +30,11 @@ ratio("casa", "caso")  # 0.75
 | `ratio(a, b)` | parecido entre 0.0 y 1.0 |
 | `closest(p, cands)` | el candidato mas cercano, o `None` |
 | `parecidos(p, cands, maximo)` | candidatos ordenados por distancia |
+
+## Medir
+
+El banco de pruebas vive en `bench/` y se lanza como modulo, siempre desde la raiz del repo:
+
+```
+python -m bench.medir
+```

@@ -1,4 +1,9 @@
-"""Mide levenshtein() sobre pares de palabras aleatorias."""
+"""Mide levenshtein() sobre pares de palabras aleatorias.
+
+Se ejecuta desde la raiz del repo para que `distancia` este en la ruta:
+
+    python -m bench.medir
+"""
 import random
 import string
 import time
